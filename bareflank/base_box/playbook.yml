@@ -96,9 +96,9 @@
             - ocaml
             - ocaml-source
             - ocaml-libs
-            - gcc-5-dev
             - gcc-5-multilib
             - gcc-5
+            - libgcc-5-dev
 
       - name: install usability packages
         apt: name={{item}} state=present
