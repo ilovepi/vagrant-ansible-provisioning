@@ -32,7 +32,7 @@
                       - python
                       - rsync
                       - systemadmin
-                      - terminator
+a                     - terminator
                       - common-aliases
                       - zsh-syntax-highlighting
 
@@ -43,9 +43,9 @@
         become_method: sudo
 
       - role: angstwad.docker_ubuntu
-         become: true
-         become_method: sudo
-
+        docker_group_members: vagrant
+        become: true
+        become_method: sudo
 
 
 
@@ -140,6 +140,13 @@
                 track_submodules=yes
         become: true
         become_user: vagrant
+
+
+      - name: patch printf.h
+        replace: dest=~/project/printf.h regexp='__wur __THROW' replace='__THROW __wur' backup=yes
+        #replace: dest=/usr/include/printf.h regexp='__wur __THROW' replace='__THROW __wur' backup=yes
+
+
 
       #- name: clone multi compiler project
         #git: repo=git@github.com:/securesystemslab/multicompiler-priv.git

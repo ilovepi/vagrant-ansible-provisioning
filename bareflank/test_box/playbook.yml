@@ -2,7 +2,13 @@
 - hosts: all
   vars:
   roles:
-       tasks:
+
+      #- role: angstwad.docker_ubuntu
+        #docker_group_members: vagrant
+        #become: true
+        #become_method: sudo
+
+  tasks:
       #- name: update apt cache
         #apt: update_cache=yes
         #become: true
@@ -14,7 +20,7 @@
             #upgrade: dist
         #become: true
         #become_method: sudo
-
+     
 
 
       #- name: clone multi compiler project
@@ -31,6 +37,11 @@
         #become: true
         #become_user: vagrant
 
+
+      - name: patch printf.h
+        replace: dest=/usr/include/printf.h regexp='__wur __THROW' replace='__THROW __wur'
+        become: true
+        become_method: sudo
 
       - name: build bareflank
         shell: ./build.sh > build.log chdir=~/project
