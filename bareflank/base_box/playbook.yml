@@ -153,6 +153,7 @@
                 accept_hostkey=true
                 recursive=yes
                 update=yes
+                force=yes
                 track_submodules=yes
         become: true
         become_user: vagrant

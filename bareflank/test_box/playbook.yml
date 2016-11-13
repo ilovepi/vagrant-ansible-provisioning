@@ -38,10 +38,10 @@
         #become_user: vagrant
 
 
-      - name: patch printf.h
-        replace: dest=/usr/include/printf.h regexp='__wur __THROW' replace='__THROW __wur'
-        become: true
-        become_method: sudo
+      #- name: patch printf.h
+        #replace: dest=/usr/include/printf.h regexp='__wur __THROW' replace='__THROW __wur'
+        #become: true
+        #become_method: sudo
 
       - name: build bareflank
         shell: ./build.sh > build.log chdir=~/project
