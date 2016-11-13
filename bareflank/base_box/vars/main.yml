@@ -1,0 +1,45 @@
+---
+
+build-packages:
+    - software-properties-common
+    - python-software-properties
+    - apt-transport-https
+    - ca-certificates
+    - cmake
+    - ninja-build
+    - build-essential
+    - linux-headers-generic
+    - libgmp-dev
+    - libmpc-dev
+    - libmpfr-dev
+    - flex
+    - bison
+    - nasm
+    - texinfo
+    - libssl-dev
+    - libxml2-dev
+    - libpcre3-dev
+    - libtool
+    - automake
+    - autotools-dev
+    - zlibc
+    - autoconf
+    - libssl-ocaml-dev
+    - ocaml
+    - ocaml-source
+    - ocaml-libs
+    - gcc-5-multilib
+    - gcc-5
+    - g++-5-multilib
+    - g++-5
+    - libgcc-5-dev
+    - libstdc++5
+
+dev-packages:
+    - vim
+    - curl
+    - wget
+    - git
+    - zsh
+
+

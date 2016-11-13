@@ -1,0 +1,143 @@
+---
+- name: add cmake repo
+  apt_repository: repo='ppa:george-edison55/cmake-3.x' state=present
+  become: true
+  become_method: sudo
+
+- name: add ubuntu testing repos
+  apt_repository: repo='ppa:ubuntu-toolchain-r/test' state=present
+  become: true
+  become_method: sudo
+
+- name: update apt cache
+  apt: update_cache=yes
+  become: true
+  become_method: sudo
+
+- name: install bareflank deps
+  apt: name={{ build-packages }} state=present
+  become: true
+  become_method: sudo
+
+
+- name: install usability packages
+  apt: name={{item}} state=present
+  become: true
+  become_method: sudo
+  with_items:
+      - vim
+      - curl
+      - wget
+      - git
+      - zsh
+
+- name: Dist-upgrade
+  apt:
+      update_cache: yes
+      upgrade: dist
+      cache_valid_time: 3600
+  become: true
+  become_method: sudo
+
+- name: clone zsh syntax highlighting
+  git: repo=http://github.com/zsh-users/zsh-syntax-highlighting.git 
+          dest=~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+          update=yes
+  become: true
+  become_user: vagrant
+  become_method: sudo
+
+
+#- name: Download spf13 vim install script
+  #get_url: url=http://j.mp/spf13-vim3 dest=~/{{ spf13_output_file_name }}
+  #run_once: true
+  #become: true
+  #become_user: vagrant
+
+#- name: launch spf13 install script
+  #command: sh ~/{{ spf13_output_file_name }}
+  #run_once: true
+  #become: true
+  #become_user: vagrant
+
+- name: clone multi compiler project
+  git: repo=git@github.com:/ilovepi/hypervisor-super.git
+          dest=~/project
+          version=master
+          depth=1
+          accept_hostkey=true
+          recursive=yes
+          update=yes
+          force=yes
+          track_submodules=yes
+  become: true
+  become_user: vagrant
+
+
+- name: patch printf.h
+  replace: dest=/usr/include/printf.h regexp='__wur __THROW' replace='__THROW __wur' backup=yes
+  become: true
+  become_method: sudo
+
+
+
+#- name: clone multi compiler project
+  #git: repo=git@github.com:/securesystemslab/multicompiler-priv.git
+          #dest=~/compilers/llvm
+          #version=cfar_38
+          #depth=1
+          #accept_hostkey=true
+  #become: true
+  #become_user: vagrant
+
+#- name: Clone Multi Compiler Clang
+  #git: repo=git@github.com:/securesystemslab/multicompiler-clang-priv.git
+          #dest=~/compilers/llvm/tools/clang
+          #version=cfar_38
+          #depth=1
+          #accept_hostkey=true
+  #become: true
+  #become_user: vagrant
+
+#- name: Clone Multi Compiler Compiler-RT
+  #git: repo=git@github.com:/securesystemslab/multicompiler-compiler-rt-priv.git
+          #dest=~/compilers/llvm/projects/compiler-rt
+          #version=cfar_38
+          #depth=1
+          #accept_hostkey=true
+  #become: true
+  #become_user: vagrant
+
+#- name: Clone Multi Compiler PoolAlloc
+  #git: repo=git@github.com:/securesystemslab/poolalloc
+          #dest=~/compilers/llvm/projects/poolalloc
+          #version=cfar_38
+          #depth=1
+          #accept_hostkey=true
+  #become: true
+  #become_user: vagrant
+
+#- name: Clone Multi Compiler SVF
+  #git: repo=git@github.com:/rboggild/SVF
+          #dest=~/compilers/llvm/projects/svf
+          #depth=1
+          #accept_hostkey=true
+  #become: true
+  #become_user: vagrant
+
+#- name: Clone Gold Linker
+  #git: repo=git@github.com:/securesystemslab/binutils.git
+          #dest=~/compilers/binutils
+          #depth=1
+          #version=random_commons-2_24
+          #accept_hostkey=true
+          #update=no
+  #become: true
+  #become_user: vagrant
+
+#- name: Create compiler/tools directory
+  #file: path=~/compilers/tools state=directory
+  #become: true
+  #become_user: vagrant
+
+
