@@ -6,8 +6,9 @@
 
   pre_tasks:
      - name: upgrade packages
-       apt: update_cache=yes
-       cache_valid_time: 3600
+       apt: 
+            update_cache: yes
+            cache_valid_time: 3600
        become: true
        become_method: sudo
 
@@ -98,7 +99,11 @@
             - ocaml-libs
             - gcc-5-multilib
             - gcc-5
+            - g++-5-multilib
+            - g++-5
             - libgcc-5-dev
+            - libstdc++5
+
 
       - name: install usability packages
         apt: name={{item}} state=present
@@ -112,16 +117,17 @@
             - zsh
 
       - name: Dist-upgrade
-        apt: 
+        apt:
             update_cache: yes
             upgrade: dist
+            cache_valid_time: 3600
         become: true
         become_method: sudo
 
       - name: clone zsh syntax highlighting
-        git: repo=http://github.com/zsh-users/zsh-syntax-highlighting.git
-            dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-            update: yes
+        git: repo=http://github.com/zsh-users/zsh-syntax-highlighting.git 
+                dest=~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+                update=yes
         become: true
         become_user: vagrant
         become_method: sudo
@@ -153,8 +159,9 @@
 
 
       - name: patch printf.h
-        replace: dest=~/project/printf.h regexp='__wur __THROW' replace='__THROW __wur' backup=yes
-        #replace: dest=/usr/include/printf.h regexp='__wur __THROW' replace='__THROW __wur' backup=yes
+        replace: dest=/usr/include/printf.h regexp='__wur __THROW' replace='__THROW __wur' backup=yes
+        become: true
+        become_method: sudo
 
 
 
