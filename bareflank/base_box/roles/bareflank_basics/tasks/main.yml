@@ -15,21 +15,15 @@
   become_method: sudo
 
 - name: install bareflank deps
-  apt: name={{ build-packages }} state=present
+  apt: name={{ build_packages }} state=present
   become: true
   become_method: sudo
 
 
 - name: install usability packages
-  apt: name={{item}} state=present
+  apt: name={{ dev_packages }} state=present
   become: true
   become_method: sudo
-  with_items:
-      - vim
-      - curl
-      - wget
-      - git
-      - zsh
 
 - name: Dist-upgrade
   apt:

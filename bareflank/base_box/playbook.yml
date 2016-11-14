@@ -47,90 +47,92 @@
         become: true
         become_method: sudo
 
+      - role: bareflank_basics
 
 
-  tasks:
-      - name: add cmake repo
-        apt_repository: repo='ppa:george-edison55/cmake-3.x' state=present
-        become: true
-        become_method: sudo
 
-      - name: add ubuntu testing repos
-        apt_repository: repo='ppa:ubuntu-toolchain-r/test' state=present
-        become: true
-        become_method: sudo
+  #tasks:
+      #- name: add cmake repo
+        #apt_repository: repo='ppa:george-edison55/cmake-3.x' state=present
+        #become: true
+        #become_method: sudo
 
-      - name: update apt cache
-        apt: update_cache=yes
-        become: true
-        become_method: sudo
+      #- name: add ubuntu testing repos
+        #apt_repository: repo='ppa:ubuntu-toolchain-r/test' state=present
+        #become: true
+        #become_method: sudo
 
-      - name: install bareflank deps
-        apt: name={{item}} state=present
-        become: true
-        become_method: sudo
-        with_items:
-            - software-properties-common
-            - python-software-properties
-            - apt-transport-https
-            - ca-certificates
-            - cmake
-            - ninja-build
-            - build-essential
-            - linux-headers-generic
-            - libgmp-dev
-            - libmpc-dev
-            - libmpfr-dev
-            - flex
-            - bison
-            - nasm
-            - texinfo
-            - libssl-dev
-            - libxml2-dev
-            - libpcre3-dev
-            - libtool
-            - automake
-            - autotools-dev
-            - zlibc
-            - autoconf
-            - libssl-ocaml-dev
-            - ocaml
-            - ocaml-source
-            - ocaml-libs
-            - gcc-5-multilib
-            - gcc-5
-            - g++-5-multilib
-            - g++-5
-            - libgcc-5-dev
-            - libstdc++5
+      #- name: update apt cache
+        #apt: update_cache=yes
+        #become: true
+        #become_method: sudo
+
+      #- name: install bareflank deps
+        #apt: name={{item}} state=present
+        #become: true
+        #become_method: sudo
+        #with_items:
+            #- software-properties-common
+            #- python-software-properties
+            #- apt-transport-https
+            #- ca-certificates
+            #- cmake
+            #- ninja-build
+            #- build-essential
+            #- linux-headers-generic
+            #- libgmp-dev
+            #- libmpc-dev
+            #- libmpfr-dev
+            #- flex
+            #- bison
+            #- nasm
+            #- texinfo
+            #- libssl-dev
+            #- libxml2-dev
+            #- libpcre3-dev
+            #- libtool
+            #- automake
+            #- autotools-dev
+            #- zlibc
+            #- autoconf
+            #- libssl-ocaml-dev
+            #- ocaml
+            #- ocaml-source
+            #- ocaml-libs
+            #- gcc-5-multilib
+            #- gcc-5
+            #- g++-5-multilib
+            #- g++-5
+            #- libgcc-5-dev
+            #- libstdc++5
 
 
-      - name: install usability packages
-        apt: name={{item}} state=present
-        become: true
-        become_method: sudo
-        with_items:
-            - vim
-            - curl
-            - wget
-            - git
-            - zsh
+      #- name: install usability packages
+        #apt: name={{item}} state=present
+        #become: true
+        #become_method: sudo
+        #with_items:
+            #- vim
+            #- curl
+            #- wget
+            #- git
+            #- zsh
 
-      - name: Dist-upgrade
-        apt:
-            update_cache: yes
-            upgrade: dist
-            cache_valid_time: 3600
-        become: true
-        become_method: sudo
+      #- name: Dist-upgrade
+        #apt:
+            #update_cache: yes
+            #upgrade: dist
+            #cache_valid_time: 3600
+        #become: true
+        #become_method: sudo
 
-      - name: clone zsh syntax highlighting
-        git: repo=http://github.com/zsh-users/zsh-syntax-highlighting.git 
-                dest=~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-                update=yes
-        become: true
-        become_user: vagrant
-        become_method: sudo
+      #- name: clone zsh syntax highlighting
+        #git: repo=http://github.com/zsh-users/zsh-syntax-highlighting.git 
+                #dest=~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+                #update=yes
+        #become: true
+        #become_user: vagrant
+        #become_method: sudo
 
 
       #- name: Download spf13 vim install script
@@ -145,24 +147,24 @@
         #become: true
         #become_user: vagrant
 
-      - name: clone multi compiler project
-        git: repo=git@github.com:/ilovepi/hypervisor-super.git
-                dest=~/project
-                version=master
-                depth=1
-                accept_hostkey=true
-                recursive=yes
-                update=yes
-                force=yes
-                track_submodules=yes
-        become: true
-        become_user: vagrant
+      #- name: clone multi compiler project
+        #git: repo=git@github.com:/ilovepi/hypervisor-super.git
+                #dest=~/project
+                #version=master
+                #depth=1
+                #accept_hostkey=true
+                #recursive=yes
+                #update=yes
+                #force=yes
+                #track_submodules=yes
+        #become: true
+        #become_user: vagrant
 
 
-      - name: patch printf.h
-        replace: dest=/usr/include/printf.h regexp='__wur __THROW' replace='__THROW __wur' backup=yes
-        become: true
-        become_method: sudo
+      #- name: patch printf.h
+        #replace: dest=/usr/include/printf.h regexp='__wur __THROW' replace='__THROW __wur' backup=yes
+        #become: true
+        #become_method: sudo
 
 
 

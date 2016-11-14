@@ -1,6 +1,6 @@
 ---
 
-build-packages:
+build_packages:
     - software-properties-common
     - python-software-properties
     - apt-transport-https
@@ -35,7 +35,7 @@ build-packages:
     - libgcc-5-dev
     - libstdc++5
 
-dev-packages:
+dev_packages:
     - vim
     - curl
     - wget
