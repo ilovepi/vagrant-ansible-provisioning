@@ -1,1 +1,3 @@
 # Ignore .vagrant & box files
+.vagrant/*
+*.box
