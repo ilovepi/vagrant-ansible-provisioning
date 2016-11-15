@@ -4,6 +4,6 @@
   roles:
       - update_source
       - build_project
-    
+
   tasks:
 
