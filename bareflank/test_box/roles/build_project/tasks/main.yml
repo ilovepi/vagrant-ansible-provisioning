@@ -3,4 +3,18 @@
   shell: ./build.sh > build.log
             chdir=~/project
 
+# run the build command and print to std out
+#- name: build multicompiler & hypervisor
+  #shell: ./build.sh 2>&1 | tee build.log
+            #chdir=~/project
 
+
+# run the build command and print to std out
+#- name: build multicompiler & hypervisor
+  #shell: ./build.sh
+            #chdir=~/project
+  #register: build
+
+#- debug: msg="{{ build.stdout }}"
+
+#- debug: msg="{{ build.stderr }}"
