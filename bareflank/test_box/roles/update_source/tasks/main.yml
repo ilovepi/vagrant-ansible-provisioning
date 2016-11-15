@@ -7,7 +7,7 @@
           accept_hostkey=true
           update=yes
   become: true
-  become_user: vagrant
+  become_user: "{{ user_name }}"
 
 - name: Clone Multi Compiler project
   git: repo=git@github.com:/securesystemslab/multicompiler-priv.git
