@@ -9,7 +9,7 @@
   become: true
   become_user: "{{ user_name }}"
 
-- name: Clone Multi Compiler project
+- name: Update Multi Compiler project
   git: repo=git@github.com:/securesystemslab/multicompiler-priv.git
           dest={{ project_base }}/multicompiler/llvm
           version=cfar_38
@@ -19,7 +19,7 @@
   become: true
   become_user: "{{ user_name }}"
 
-- name: Clone Multi Compiler Clang
+- name: Update Multi Compiler Clang
   git: repo=git@github.com:/securesystemslab/multicompiler-clang-priv.git
           dest={{ project_base }}/multicompiler/llvm/tools/clang
           version=cfar_38
@@ -29,7 +29,7 @@
   become: true
   become_user: "{{ user_name }}"
 
-- name: Clone Multi Compiler Compiler-RT
+- name: Update Multi Compiler Compiler-RT
   git: repo=git@github.com:/securesystemslab/multicompiler-compiler-rt-priv.git
           dest={{ project_base }}/multicompiler/llvm/projects/compiler-rt
           version=cfar_38
@@ -39,7 +39,7 @@
   become: true
   become_user: "{{ user_name }}"
 
-- name: Clone Multi Compiler PoolAlloc
+- name: Update Multi Compiler PoolAlloc
   git: repo=git@github.com:/securesystemslab/poolalloc
           dest={{ project_base }}/multicompiler/llvm/projects/poolalloc
           version=cfar_38
@@ -49,7 +49,7 @@
   become: true
   become_user: "{{ user_name }}"
 
-- name: Clone Multi Compiler SVF
+- name: Update Multi Compiler SVF
   git: repo=git@github.com:/rboggild/SVF
           dest={{ project_base }}/multicompiler/llvm/projects/svf
           update=yes
@@ -58,7 +58,7 @@
   become: true
   become_user: "{{ user_name }}"
 
-- name: Clone Gold Linker
+- name: Update Gold Linker
   git: repo=git@github.com:/securesystemslab/binutils.git
           dest={{ project_base }}/multicompiler/binutils
           depth=1
