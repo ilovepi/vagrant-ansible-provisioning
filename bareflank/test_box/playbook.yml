@@ -3,7 +3,7 @@
   vars:
   roles:
       - update_source
-      #- build_project
+      - build_project
     
   tasks:
 
