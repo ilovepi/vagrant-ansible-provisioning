@@ -1,0 +1,6 @@
+---
+- name: build multicompiler & hypervisor
+  shell: ./build.sh
+            chdir=~/project
+
+
