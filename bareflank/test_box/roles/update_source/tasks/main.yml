@@ -1,67 +1,70 @@
 ---
+- name: Update Hypervisor Super Project
+  git: repo=git@github.com:/ilovepi/hypervisor-super.git
+          dest={{ project_base }}
+          version=no-submodules
+          depth=1
+          accept_hostkey=true
+          update=yes
+  become: true
+  become_user: vagrant
+
 - name: Clone Multi Compiler project
   git: repo=git@github.com:/securesystemslab/multicompiler-priv.git
-          dest=~/compilers/llvm
+          dest={{ project_base }}/multicompiler/llvm
           version=cfar_38
           update=yes
           depth=1
           accept_hostkey=true
   become: true
-  become_user: {{ user_name }}
+  become_user: "{{ user_name }}"
 
 - name: Clone Multi Compiler Clang
   git: repo=git@github.com:/securesystemslab/multicompiler-clang-priv.git
-          dest=~/compilers/llvm/tools/clang
+          dest={{ project_base }}/multicompiler/llvm/tools/clang
           version=cfar_38
           update=yes
           depth=1
           accept_hostkey=true
   become: true
-  become_user: {{ user_name }}
+  become_user: "{{ user_name }}"
 
 - name: Clone Multi Compiler Compiler-RT
   git: repo=git@github.com:/securesystemslab/multicompiler-compiler-rt-priv.git
-          dest=~/compilers/llvm/projects/compiler-rt
+          dest={{ project_base }}/multicompiler/llvm/projects/compiler-rt
           version=cfar_38
           update=yes
           depth=1
           accept_hostkey=true
   become: true
-  become_user: {{ user_name }}
+  become_user: "{{ user_name }}"
 
 - name: Clone Multi Compiler PoolAlloc
   git: repo=git@github.com:/securesystemslab/poolalloc
-          dest=~/compilers/llvm/projects/poolalloc
+          dest={{ project_base }}/multicompiler/llvm/projects/poolalloc
           version=cfar_38
           update=yes
           depth=1
           accept_hostkey=true
   become: true
-  become_user: {{ user_name }}
+  become_user: "{{ user_name }}"
 
 - name: Clone Multi Compiler SVF
   git: repo=git@github.com:/rboggild/SVF
-          dest=~/compilers/llvm/projects/svf
+          dest={{ project_base }}/multicompiler/llvm/projects/svf
           update=yes
           depth=1
           accept_hostkey=true
   become: true
-  become_user: {{ user_name }}
+  become_user: "{{ user_name }}"
 
 - name: Clone Gold Linker
   git: repo=git@github.com:/securesystemslab/binutils.git
-          dest=~/compilers/binutils
+          dest={{ project_base }}/multicompiler/binutils
           depth=1
           update=yes
           version=random_commons-2_24
           accept_hostkey=true
           update=no
   become: true
-  become_user: {{ user_name }}
-
-- name: Create compiler/tools directory
-  file: path=~/compilers/tools state=directory
-  become: true
-  become_user: {{ user_name }}
-
-
+  become_user: "{{ user_name }}"
