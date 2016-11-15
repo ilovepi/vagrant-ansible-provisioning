@@ -1,6 +1,67 @@
 ---
-- name: build multicompiler & hypervisor
-  shell: ./build.sh
-            chdir=~/project
+- name: Clone Multi Compiler project
+  git: repo=git@github.com:/securesystemslab/multicompiler-priv.git
+          dest=~/compilers/llvm
+          version=cfar_38
+          update=yes
+          depth=1
+          accept_hostkey=true
+  become: true
+  become_user: {{ user_name }}
+
+- name: Clone Multi Compiler Clang
+  git: repo=git@github.com:/securesystemslab/multicompiler-clang-priv.git
+          dest=~/compilers/llvm/tools/clang
+          version=cfar_38
+          update=yes
+          depth=1
+          accept_hostkey=true
+  become: true
+  become_user: {{ user_name }}
+
+- name: Clone Multi Compiler Compiler-RT
+  git: repo=git@github.com:/securesystemslab/multicompiler-compiler-rt-priv.git
+          dest=~/compilers/llvm/projects/compiler-rt
+          version=cfar_38
+          update=yes
+          depth=1
+          accept_hostkey=true
+  become: true
+  become_user: {{ user_name }}
+
+- name: Clone Multi Compiler PoolAlloc
+  git: repo=git@github.com:/securesystemslab/poolalloc
+          dest=~/compilers/llvm/projects/poolalloc
+          version=cfar_38
+          update=yes
+          depth=1
+          accept_hostkey=true
+  become: true
+  become_user: {{ user_name }}
+
+- name: Clone Multi Compiler SVF
+  git: repo=git@github.com:/rboggild/SVF
+          dest=~/compilers/llvm/projects/svf
+          update=yes
+          depth=1
+          accept_hostkey=true
+  become: true
+  become_user: {{ user_name }}
+
+- name: Clone Gold Linker
+  git: repo=git@github.com:/securesystemslab/binutils.git
+          dest=~/compilers/binutils
+          depth=1
+          update=yes
+          version=random_commons-2_24
+          accept_hostkey=true
+          update=no
+  become: true
+  become_user: {{ user_name }}
+
+- name: Create compiler/tools directory
+  file: path=~/compilers/tools state=directory
+  become: true
+  become_user: {{ user_name }}
 
 
