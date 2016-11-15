@@ -139,10 +139,3 @@
           accept_hostkey=true
   become: true
   become_user: vagrant
-
-#- name: Create compiler/tools directory
-  #file: path=~/project/multicompiler/tools state=directory
-  #become: true
-  #become_user: vagrant
-
-
