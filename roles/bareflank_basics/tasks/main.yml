@@ -38,7 +38,7 @@
           dest=~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
           update=yes
   become: true
-  become_user: vagrant
+  become_user: "{{ ansible_user_id }}"
   become_method: sudo
 
 
@@ -46,13 +46,13 @@
   #get_url: url=http://j.mp/spf13-vim3 dest=~/{{ spf13_output_file_name }}
   #run_once: true
   #become: true
-  #become_user: vagrant
+  #become_user: "{{ user_name }}"
 
 #- name: launch spf13 install script
   #command: sh ~/{{ spf13_output_file_name }}
   #run_once: true
   #become: true
-  #become_user: vagrant
+  #become_user: "{{ user_name }}"
 
 
 - name: patch printf.h
@@ -69,7 +69,7 @@
           accept_hostkey=true
           update=yes
   become: true
-  become_user: vagrant
+  become_user: "{{ user_name }}"
 
 - name: clone multicompiler super project
   git: repo=git@github.com:/ilovepi/multicompiler-automation.git
@@ -79,7 +79,7 @@
           accept_hostkey=true
           update=yes
   become: true
-  become_user: vagrant
+  become_user: "{{ user_name }}"
 
 - name: clone multi compiler project
   git: repo=git@github.com:/securesystemslab/multicompiler-priv.git
@@ -89,7 +89,7 @@
           depth=1
           accept_hostkey=true
   become: true
-  become_user: vagrant
+  become_user: "{{ user_name }}"
 
 - name: Clone Multi Compiler Clang
   git: repo=git@github.com:/securesystemslab/multicompiler-clang-priv.git
@@ -99,7 +99,7 @@
           depth=1
           accept_hostkey=true
   become: true
-  become_user: vagrant
+  become_user: "{{ user_name }}"
 
 - name: Clone Multi Compiler Compiler-RT
   git: repo=git@github.com:/securesystemslab/multicompiler-compiler-rt-priv.git
@@ -109,7 +109,7 @@
           depth=1
           accept_hostkey=true
   become: true
-  become_user: vagrant
+  become_user: "{{ user_name }}"
 
 - name: Clone Multi Compiler PoolAlloc
   git: repo=git@github.com:/securesystemslab/poolalloc
@@ -119,7 +119,7 @@
           depth=1
           accept_hostkey=true
   become: true
-  become_user: vagrant
+  become_user: "{{ user_name }}"
 
 - name: Clone Multi Compiler SVF
   git: repo=git@github.com:/rboggild/SVF
@@ -128,7 +128,7 @@
           update=yes
           accept_hostkey=true
   become: true
-  become_user: vagrant
+  become_user: "{{ user_name }}"
 
 - name: Clone Gold Linker
   git: repo=git@github.com:/securesystemslab/binutils.git
@@ -138,4 +138,4 @@
           version=random_commons-2_26
           accept_hostkey=true
   become: true
-  become_user: vagrant
+  become_user: "{{ user_name }}"

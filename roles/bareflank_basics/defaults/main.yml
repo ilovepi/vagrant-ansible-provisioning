@@ -1,5 +1,5 @@
 ---
-
+user_name: "{{ ansible_user_id }}"
 build_packages:
     - software-properties-common
     - python-software-properties
