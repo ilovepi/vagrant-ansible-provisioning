@@ -50,3 +50,7 @@
 
       - role: bareflank_basics
 
+      - role: update_source
+
+      - role: build_project
+
