@@ -17,7 +17,7 @@
   roles:
       - role: gantsign.oh-my-zsh
         users:
-            - username: vagrant
+            - username: "{{ user_name }}"
               oh_my_zsh:
                   theme: agnoster
                   plugins:
