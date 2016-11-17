@@ -3,6 +3,7 @@
   vars:
     spf13_output_file_name: spf13-script.sh
     apt_install_packages: git
+    user_name: $(whoami)
 
   pre_tasks:
      - name: upgrade packages
@@ -38,12 +39,12 @@
 
       - role: mjanser.powerline
         powerline_users:
-            -vagrant
+            - "{{ user_name }}"
         become: true
         become_method: sudo
 
       - role: angstwad.docker_ubuntu
-        docker_group_members: vagrant
+        docker_group_members: "{{ user_name }}"
         become: true
         become_method: sudo
 
