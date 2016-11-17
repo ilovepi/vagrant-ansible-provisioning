@@ -3,7 +3,7 @@
   vars:
     spf13_output_file_name: spf13-script.sh
     apt_install_packages: git
-    user_name: {{ ansible_user_id }}
+    user_name: "{{ ansible_user_id }}"
 
   pre_tasks:
      - name: upgrade packages
