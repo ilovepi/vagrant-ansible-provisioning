@@ -1,7 +1,7 @@
 ---
 - name: Update Hypervisor Super Project
   git: repo=git@github.com:/ilovepi/hypervisor-super.git
-          dest={{ project_base }}
+          dest={{ project_root }}
           version=no-submodules
           depth=1
           accept_hostkey=true
@@ -11,7 +11,7 @@
 
 - name: Update Multi Compiler project
   git: repo=git@github.com:/securesystemslab/multicompiler-priv.git
-          dest={{ project_base }}/multicompiler/llvm
+          dest={{ project_root }}/multicompiler/llvm
           version=cfar_38
           update=yes
           depth=1
@@ -21,7 +21,7 @@
 
 - name: Update Multi Compiler Clang
   git: repo=git@github.com:/securesystemslab/multicompiler-clang-priv.git
-          dest={{ project_base }}/multicompiler/llvm/tools/clang
+          dest={{ project_root }}/multicompiler/llvm/tools/clang
           version=cfar_38
           update=yes
           depth=1
@@ -31,7 +31,7 @@
 
 - name: Update Multi Compiler Compiler-RT
   git: repo=git@github.com:/securesystemslab/multicompiler-compiler-rt-priv.git
-          dest={{ project_base }}/multicompiler/llvm/projects/compiler-rt
+          dest={{ project_root }}/multicompiler/llvm/projects/compiler-rt
           version=cfar_38
           update=yes
           depth=1
@@ -41,7 +41,7 @@
 
 - name: Update Multi Compiler PoolAlloc
   git: repo=git@github.com:/securesystemslab/poolalloc
-          dest={{ project_base }}/multicompiler/llvm/projects/poolalloc
+          dest={{ project_root }}/multicompiler/llvm/projects/poolalloc
           version=cfar_38
           update=yes
           depth=1
@@ -51,7 +51,7 @@
 
 - name: Update Multi Compiler SVF
   git: repo=git@github.com:/rboggild/SVF
-          dest={{ project_base }}/multicompiler/llvm/projects/svf
+          dest={{ project_root }}/multicompiler/llvm/projects/svf
           update=yes
           depth=1
           accept_hostkey=true
@@ -60,7 +60,7 @@
 
 - name: Update Gold Linker
   git: repo=git@github.com:/securesystemslab/binutils.git
-          dest={{ project_base }}/multicompiler/binutils
+          dest={{ project_root }}/multicompiler/binutils
           depth=1
           update=yes
           version=random_commons-2_24
