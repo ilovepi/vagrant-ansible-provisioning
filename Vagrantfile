@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
   # boxes at https://atlas.hashicorp.com/search.
   #config.vm.box = "ubuntu/trusty64"
   #config.vm.box = "boxcutter/ubuntu1604"
-  config.vm.box = "detain/ubuntu-14.04-x86_64"
+  config.vm.box = "yk0/ubuntu-xenial"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
