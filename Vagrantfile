@@ -56,7 +56,7 @@ Vagrant.configure("2") do |config|
   #
    config.vm.provider :libvirt do |libvirt|
      # Display the VirtualBox GUI when booting the machine
-     libvirt.gui = true
+     #libvirt.gui = true
   
      # Customize the amount of memory on the VM:
      libvirt.memory = "2048"
