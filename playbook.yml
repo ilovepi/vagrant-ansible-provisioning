@@ -48,9 +48,13 @@
         become: true
         become_method: sudo
 
-      - role: bareflank_basics
 
-      - role: update_source
 
-      - role: build_project
+
+      - role: geerlingguy.jenkins
+      #- role: bareflank_basics
+
+      #- role: update_source
+
+      #- role: build_project
 

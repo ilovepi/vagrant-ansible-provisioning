@@ -13,7 +13,8 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
   #config.vm.box = "ubuntu/trusty64"
-  config.vm.box = "boxcutter/ubuntu1604"
+  #config.vm.box = "boxcutter/ubuntu1604"
+  config.vm.box = "detain/ubuntu-14.04-x86_64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -53,13 +54,13 @@ Vagrant.configure("2") do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-   config.vm.provider "virtualbox" do |vb|
+   config.vm.provider :libvirt do |libvirt|
      # Display the VirtualBox GUI when booting the machine
-     #vb.gui = true
+     libvirt.gui = true
   
      # Customize the amount of memory on the VM:
-     vb.memory = "2048"
-     vb.cpus = 1
+     libvirt.memory = "2048"
+     libvirt.cpus = 1
    end
   
   # View the documentation for the provider you are using for more
