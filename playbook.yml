@@ -15,6 +15,7 @@
 
 
   roles:
+      - role: geerlingguy.jenkins
       - role: gantsign.oh-my-zsh
         users:
             - username: "{{ user_name }}"
@@ -51,7 +52,6 @@
 
 
 
-      - role: geerlingguy.jenkins
       #- role: bareflank_basics
 
       #- role: update_source
