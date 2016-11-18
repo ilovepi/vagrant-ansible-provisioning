@@ -63,7 +63,7 @@
 
 - name: clone hypervisor super project
   git: repo=git@github.com:/ilovepi/hypervisor-super.git
-          dest=~/project
+          dest={{ project_root }}
           version=no-submodules
           depth=1
           accept_hostkey=true
@@ -73,7 +73,7 @@
 
 - name: clone multicompiler super project
   git: repo=git@github.com:/ilovepi/multicompiler-automation.git
-          dest=~/project/multicompiler
+          dest={{ project_root }}/multicompiler
           version=no-submodules
           depth=1
           accept_hostkey=true
@@ -83,7 +83,7 @@
 
 - name: clone multi compiler project
   git: repo=git@github.com:/securesystemslab/multicompiler-priv.git
-          dest=~/project/multicompiler/llvm
+          dest={{ project_root }}/multicompiler/llvm
           version=cfar_38
           update=yes
           depth=1
@@ -93,7 +93,7 @@
 
 - name: Clone Multi Compiler Clang
   git: repo=git@github.com:/securesystemslab/multicompiler-clang-priv.git
-          dest=~/project/multicompiler/llvm/tools/clang
+          dest={{ project_root }}/multicompiler/llvm/tools/clang
           version=cfar_38
           update=yes
           depth=1
@@ -103,7 +103,7 @@
 
 - name: Clone Multi Compiler Compiler-RT
   git: repo=git@github.com:/securesystemslab/multicompiler-compiler-rt-priv.git
-          dest=~/project/multicompiler/llvm/projects/compiler-rt
+          dest={{ project_root }}/multicompiler/llvm/projects/compiler-rt
           version=cfar_38
           update=yes
           depth=1
@@ -113,7 +113,7 @@
 
 - name: Clone Multi Compiler PoolAlloc
   git: repo=git@github.com:/securesystemslab/poolalloc
-          dest=~/project/multicompiler/llvm/projects/poolalloc
+          dest={{ project_root }}/multicompiler/llvm/projects/poolalloc
           version=cfar_38
           update=yes
           depth=1
@@ -123,7 +123,7 @@
 
 - name: Clone Multi Compiler SVF
   git: repo=git@github.com:/rboggild/SVF
-          dest=~/project/multicompiler/llvm/projects/svf
+          dest={{ project_root }}/multicompiler/llvm/projects/svf
           depth=1
           update=yes
           accept_hostkey=true
@@ -132,7 +132,7 @@
 
 - name: Clone Gold Linker
   git: repo=git@github.com:/securesystemslab/binutils.git
-          dest=~/project/multicompiler/binutils
+          dest={{ project_root }}/multicompiler/binutils
           depth=1
           update=yes
           version=random_commons-2_26

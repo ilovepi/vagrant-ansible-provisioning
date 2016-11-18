@@ -1,5 +1,6 @@
 ---
 user_name: "{{ ansible_user_id }}"
+project_root: "{{ ansible_env.WORKSPACE }}"
 build_packages:
     - software-properties-common
     - python-software-properties
