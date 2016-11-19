@@ -60,4 +60,12 @@
       #- role: update_source
 
       #- role: build_project
+  tasks:
+    - name: install ansible
+      apt: 
+        name: ansible
+        state: latest
+        update_cache: yes
+        cache_valid_time: 3600
+
 
