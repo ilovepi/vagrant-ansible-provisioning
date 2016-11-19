@@ -35,7 +35,8 @@ Vagrant.configure("2") do |config|
   # your network.
   # config.vm.network "public_network"
 
-
+config.vm.hostname = "jenkins"
+config.vm.network :private_network, ip: "192.168.33.55"
 
 
   #config.vm.provider "virtualbox" do |v|
@@ -57,6 +58,8 @@ Vagrant.configure("2") do |config|
    config.vm.provider :libvirt do |libvirt|
      # Display the VirtualBox GUI when booting the machine
      #libvirt.gui = true
+     #libvirt.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+     #libvirt.customize ["modifyvm", :id, "--ioapic", "on"]
   
      # Customize the amount of memory on the VM:
      libvirt.memory = "2048"
