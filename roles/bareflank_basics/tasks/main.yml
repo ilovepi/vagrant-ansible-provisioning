@@ -61,7 +61,7 @@
   become_method: sudo
 
 - name: test env
-  command: echo WORKSPACE = $WORKSPACE
+  command: echo WORKSPACE = ${WORKSPACE}
   register: my_jenkins_workspace
 
 - debug: msg="WORKSPACE={{ lookup('env', 'WORKSPACE') }}"
