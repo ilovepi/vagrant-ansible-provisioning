@@ -13,18 +13,7 @@
        become: true
        become_method: sudo
 
-
   roles:
-      #- role: manala.ansible-galaxy
-        #manala_ansible_galaxy_roles:
-        #- geerlingguy.jenkins
-        #- geerlingguy.java
-      
-
-      #- role: geerlingguy.jenkins
-        #become: true
-        #become_method: sudo
-
       - role: gantsign.oh-my-zsh
         users:
             - username: "{{ user_name }}"
@@ -66,6 +55,18 @@
       #- role: update_source
 
       #- role: build_project
+
+      #- role: manala.ansible-galaxy
+        #manala_ansible_galaxy_roles:
+        #- geerlingguy.jenkins
+        #- geerlingguy.java
+
+
+      #- role: geerlingguy.jenkins
+        #become: true
+        #become_method: sudo
+
+
   tasks:
     - name: install ansible
       apt: 
