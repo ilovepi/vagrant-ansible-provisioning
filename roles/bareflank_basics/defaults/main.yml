@@ -1,7 +1,8 @@
 ---
 user_name: "{{ ansible_user_id }}"
 #project_root: "{{ lookup('env', 'WORKSPACE') }}"
-project_root: "{{ ansible_env.WORKSPACE }}"
+#project_root: "{{ ansible_env.WORKSPACE }}"
+project_root: $WORKSPACE
 build_packages:
     - software-properties-common
     - python-software-properties
