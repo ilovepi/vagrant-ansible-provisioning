@@ -60,6 +60,11 @@
   become: true
   become_method: sudo
 
+- name: test env
+  command: echo $WORKSPACE
+
+- debug: msg="WORKSPACE={{ $WORKSPACE  }}"
+- debug: msg="WORKSPACE={{ ansible_env.WORKSPACE | mandatory  }}"
 
 - name: clone hypervisor super project
   git: repo=git@github.com:/ilovepi/hypervisor-super.git
