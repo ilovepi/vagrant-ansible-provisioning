@@ -14,38 +14,38 @@
        become_method: sudo
 
   roles:
-      - role: gantsign.oh-my-zsh
-        users:
-            - username: "{{ user_name }}"
-              oh_my_zsh:
-                  theme: agnoster
-                  plugins:
-                      - git
-                      - git-extras
-                      - colorize
-                      - colored-man-pages
-                      - ubuntu
-                      - wd
-                      - gnu-utils
-                      - nmap
-                      - npm
-                      - nvm
-                      - python
-                      - rsync
-                      - systemadmin
-                      - common-aliases
-                      - zsh-syntax-highlighting
+      #- role: gantsign.oh-my-zsh
+        #users:
+            #- username: "{{ user_name }}"
+              #oh_my_zsh:
+                  #theme: agnoster
+                  #plugins:
+                      #- git
+                      #- git-extras
+                      #- colorize
+                      #- colored-man-pages
+                      #- ubuntu
+                      #- wd
+                      #- gnu-utils
+                      #- nmap
+                      #- npm
+                      #- nvm
+                      #- python
+                      #- rsync
+                      #- systemadmin
+                      #- common-aliases
+                      #- zsh-syntax-highlighting
 
-      - role: mjanser.powerline
-        powerline_users:
-            - "{{ user_name }}"
-        become: true
-        become_method: sudo
+      #- role: mjanser.powerline
+        #powerline_users:
+            #- "{{ user_name }}"
+        #become: true
+        #become_method: sudo
 
-      - role: angstwad.docker_ubuntu
-        docker_group_members: "{{ user_name }}"
-        become: true
-        become_method: sudo
+      #- role: angstwad.docker_ubuntu
+        #docker_group_members: "{{ user_name }}"
+        #become: true
+        #become_method: sudo
 
 
 
