@@ -1,4 +1,4 @@
 ---
 user_name: "{{ ansible_user_id }}"
 #project_root: "{{ ansible_env.WORKSPACE }}"
-project_root: "{{ lookup('env', 'WORKSPACE') | default('project') }}"
+project_root: "{{ lookup('env', 'WORKSPACE') | default('project', true) }}"
