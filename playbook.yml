@@ -18,6 +18,7 @@
       - role: geerlingguy.jenkins
         become: true
         become_method: sudo
+
       - role: gantsign.oh-my-zsh
         users:
             - username: "{{ user_name }}"
