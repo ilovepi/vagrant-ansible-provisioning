@@ -15,6 +15,12 @@
 
 
   roles:
+      - role: manala.ansible-galaxy
+      manala_ansible_galaxy_roles:
+        - geerlingguy.jenkins
+        - geerlingguy.java
+      
+
       - role: geerlingguy.jenkins
         become: true
         become_method: sudo
