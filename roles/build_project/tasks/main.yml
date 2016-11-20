@@ -1,5 +1,5 @@
 ---
-- name: build multicompiler & hypervisor
+- name: Build Multicompiler & Hypervisor
   shell: ./build.sh > build.log
             chdir=project
 
