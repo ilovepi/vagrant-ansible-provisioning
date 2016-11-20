@@ -68,9 +68,19 @@
 #- debug: msg="WORKSPACE={{ my_jenkins_workspace }}"
 #- debug: msg="WORKSPACE={{ ansible_env.WORKSPACE | mandatory  }}"
 
-- name: clone hypervisor super project
+- name: Clone Hypervisor Super Project
   git: repo=git@github.com:/ilovepi/hypervisor-super.git
           dest={{ project_root }}
+          version=no-submodules
+          depth=1
+          accept_hostkey=true
+          update=yes
+  become: true
+  become_user: "{{ user_name }}"
+
+- name: Clone Hypervisor Super project
+  git: repo=git@github.com:/ilovepi/hypervisor.git
+          dest={{ project_root }}/hypervisor
           version=no-submodules
           depth=1
           accept_hostkey=true
