@@ -81,7 +81,7 @@
 - name: Clone Hypervisor Super project
   git: repo=git@github.com:/ilovepi/hypervisor.git
           dest={{ project_root }}/hypervisor
-          version=no-submodules
+          version=master
           depth=1
           accept_hostkey=true
           update=yes
