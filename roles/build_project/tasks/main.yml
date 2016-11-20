@@ -1,7 +1,7 @@
 ---
 - name: build multicompiler & hypervisor
   shell: ./build.sh > build.log
-            chdir=~/project
+            chdir=project
 
 # run the build command and print to std out
 #- name: build multicompiler & hypervisor
