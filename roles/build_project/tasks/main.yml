@@ -1,7 +1,7 @@
 ---
 - name: Build Multicompiler & Hypervisor
   shell: ./build.sh > build.log
-            chdir=project
+            chdir={{ project_root }}
 
 # run the build command and print to std out
 #- name: build multicompiler & hypervisor
