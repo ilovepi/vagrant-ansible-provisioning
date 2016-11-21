@@ -64,9 +64,9 @@
   shell: echo "WORKSPACE = ${WORKSPACE}"
   register: my_jenkins_workspace
 
-#- debug: msg="WORKSPACE={{ lookup('env', 'WORKSPACE') }}"
-#- debug: msg="WORKSPACE={{ my_jenkins_workspace }}"
-#- debug: msg="WORKSPACE={{ ansible_env.WORKSPACE | mandatory  }}"
+- debug: msg="WORKSPACE={{ lookup('env', 'WORKSPACE') }}"
+- debug: msg="WORKSPACE={{ my_jenkins_workspace }}"
+- debug: msg="WORKSPACE={{ ansible_env.WORKSPACE | mandatory  }}"
 
 - name: Clone Hypervisor Super Project
   git: repo=git@github.com:/ilovepi/hypervisor-super.git
