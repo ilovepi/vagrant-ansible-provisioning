@@ -1,7 +1,7 @@
 ---
-- name: Build Multicompiler & Hypervisor
-  shell: ./build.sh > build.log
-            chdir={{ project_root }}
+#- name: Build Multicompiler & Hypervisor
+  #shell: ./build.sh > build.log
+            #chdir={{ project_root }}
 
 # run the build command and print to std out
 #- name: build multicompiler & hypervisor
@@ -10,11 +10,11 @@
 
 
 # run the build command and print to std out
-#- name: build multicompiler & hypervisor
-  #shell: ./build.sh
-            #chdir=~/project
-  #register: build
+- name: build multicompiler & hypervisor
+  shell: ./build.sh
+            chdir={{ project_root }}
+  register: build
 
-#- debug: msg="{{ build.stdout }}"
+- debug: msg="{{ build.stdout }}"
 
-#- debug: msg="{{ build.stderr }}"
+- debug: msg="{{ build.stderr }}"
