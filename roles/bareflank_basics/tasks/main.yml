@@ -78,7 +78,7 @@
   become: true
   become_user: "{{ user_name }}"
 
-- name: Clone Hypervisor Super project
+- name: Clone Hypervisor Fork
   git: repo=git@github.com:/ilovepi/hypervisor.git
           dest={{ project_root }}/hypervisor
           version=master
@@ -88,7 +88,7 @@
   become: true
   become_user: "{{ user_name }}"
 
-- name: clone multicompiler super project
+- name: Clone Multicompiler Super Project
   git: repo=git@github.com:/ilovepi/multicompiler-automation.git
           dest={{ project_root }}/multicompiler
           version=no-submodules
@@ -98,7 +98,7 @@
   become: true
   become_user: "{{ user_name }}"
 
-- name: clone multi compiler project
+- name: Clone Multi-Compiler Project
   git: repo=git@github.com:/securesystemslab/multicompiler-priv.git
           dest={{ project_root }}/multicompiler/llvm
           version=cfar_38
@@ -108,7 +108,7 @@
   become: true
   become_user: "{{ user_name }}"
 
-- name: Clone Multi Compiler Clang
+- name: Clone Multi-Compiler Clang
   git: repo=git@github.com:/securesystemslab/multicompiler-clang-priv.git
           dest={{ project_root }}/multicompiler/llvm/tools/clang
           version=cfar_38
@@ -118,7 +118,7 @@
   become: true
   become_user: "{{ user_name }}"
 
-- name: Clone Multi Compiler Compiler-RT
+- name: Clone Multi-Compiler Compiler-RT
   git: repo=git@github.com:/securesystemslab/multicompiler-compiler-rt-priv.git
           dest={{ project_root }}/multicompiler/llvm/projects/compiler-rt
           version=cfar_38
@@ -128,7 +128,7 @@
   become: true
   become_user: "{{ user_name }}"
 
-- name: Clone Multi Compiler PoolAlloc
+- name: Clone Multi-Compiler PoolAlloc
   git: repo=git@github.com:/securesystemslab/poolalloc
           dest={{ project_root }}/multicompiler/llvm/projects/poolalloc
           version=cfar_38
@@ -138,7 +138,7 @@
   become: true
   become_user: "{{ user_name }}"
 
-- name: Clone Multi Compiler SVF
+- name: Clone Multi-Compiler SVF
   git: repo=git@github.com:/rboggild/SVF
           dest={{ project_root }}/multicompiler/llvm/projects/svf
           depth=1
