@@ -10,6 +10,7 @@ build_packages:
     - ca-certificates
     - cmake
     - ninja-build
+    - docker
     - build-essential
     - linux-headers-generic
     - libgmp-dev
