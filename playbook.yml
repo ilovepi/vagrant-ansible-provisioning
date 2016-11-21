@@ -2,7 +2,18 @@
 - hosts: all
   vars:
     spf13_output_file_name: spf13-script.sh
-    apt_install_packages: git
+    apt_install_packages: 
+        - git 
+        - python
+        - python-pip
+        - lsb
+        - ansible 
+        - vim
+        - zsh
+        - build-essential
+        - sudo
+        - docker
+
     user_name: "{{ ansible_user_id }}"
 
   pre_tasks:
@@ -42,18 +53,6 @@
         become: true
         become_method: sudo
 
-      #- role: angstwad.docker_ubuntu
-        #docker_group_members: "{{ user_name }}"
-        #become: true
-        #become_method: sudo
-
-
-      #- role: bareflank_basics
-
-      #- role: update_source
-
-      #- role: build_project
-
       - role: manala.ansible-galaxy
         manala_ansible_galaxy_roles:
         - geerlingguy.java
@@ -65,5 +64,12 @@
       - geerlingguy.git
       - geerlingguy.java
       - geerlingguy.jenkins
-       
+
+      #- role: vozerov.sudo
+        #sudo_sudoers:
+            #- name: %sudo
+            #- nopasswd: true
+        #sudo_sudoers_d:
+            #- name: jenkins
+
 
