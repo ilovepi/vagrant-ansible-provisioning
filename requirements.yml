@@ -1,0 +1,11 @@
+---
+- src: geerlingguy.firewall
+- src: geerlingguy.ntp
+- src: geerlingguy.git
+- src: geerlingguy.java
+- src: geerlingguy.jenkins
+- src: mjanser.powerline
+- src: gantsign.oh-my-zsh
+- src: angstwad.docker_ubuntu
+- src: manala.ansible-galaxy
+
