@@ -48,8 +48,6 @@
         become_method: sudo
 
 
-
-
       - role: bareflank_basics
 
       - role: update_source
