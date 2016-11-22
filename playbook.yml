@@ -12,6 +12,7 @@
             cache_valid_time: 3600
        become: true
        become_method: sudo
+       tag: initalize
 
   roles:
       #- role: gantsign.oh-my-zsh
@@ -49,7 +50,7 @@
 
 
       - role: bareflank_basics
-        tag: init
+        tag: initalize
 
       #- role: update_source
 
