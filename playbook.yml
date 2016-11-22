@@ -49,7 +49,7 @@
 
 
       - role: bareflank_basics
-        tags: initalize
+        tags: initialize
 
       #- role: update_source
 
