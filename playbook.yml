@@ -49,12 +49,12 @@
 
 
       - role: bareflank_basics
-        tag: initalize
+        tags: initalize
 
       #- role: update_source
 
       - role: build_project
-        tag: build
+        tags: build
 
       #- role: manala.ansible-galaxy
         #manala_ansible_galaxy_roles:
