@@ -7,3 +7,18 @@ firewall_allowed_tcp_ports:
     - "80"
     - "443"
     - "8080"
+
+
+apt_install_packages: 
+    - git 
+    - python
+    - python-pip
+    - lsb
+    - ansible 
+    - vim
+    - zsh
+    - build-essential
+    - sudo
+    - docker
+
+user_name: "{{ ansible_user_id }}"

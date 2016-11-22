@@ -2,21 +2,6 @@
 - hosts: jenkins
   vars_files:
       - vars/main.yml
-  vars:
-    spf13_output_file_name: spf13-script.sh
-    apt_install_packages: 
-        - git 
-        - python
-        - python-pip
-        - lsb
-        - ansible 
-        - vim
-        - zsh
-        - build-essential
-        - sudo
-        - docker
-
-    user_name: "{{ ansible_user_id }}"
 
   gather_facts: False
   pre_tasks:
