@@ -53,8 +53,8 @@
 
       #- role: update_source
 
-      #- role: build_project
-      #  tag: build
+      - role: build_project
+        tag: build
 
       #- role: manala.ansible-galaxy
         #manala_ansible_galaxy_roles:
