@@ -16,11 +16,21 @@
 
     user_name: "{{ ansible_user_id }}"
 
+  gather_facts: False
   pre_tasks:
+     - name: Install python2 
+       raw: test -e /usr/bin/python || (apt -y update && apt install -y python python-pip)
+       changed_when: False
+       become: true
+       become_method: sudo
+
+     - setup: # aka gather_facts
+
      - name: upgrade packages
        apt: 
             update_cache: yes
             cache_valid_time: 3600
+            name: "{{ apt_install_packages }}"
        become: true
        become_method: sudo
 
@@ -55,15 +65,34 @@
 
       - role: manala.ansible-galaxy
         manala_ansible_galaxy_roles:
-        - geerlingguy.java
+            - geerlingguy.java
+            - manala.ansible-galaxy
+        become: true
+        become_method: sudo
 
+      - role: geerlingguy.jenkins
+        become: true
+        become_method: sudo
 
-      - geerlingguy.jenkins
-      - geerlingguy.firewall
-      - geerlingguy.ntp
-      - geerlingguy.git
-      - geerlingguy.java
-      - geerlingguy.jenkins
+      - role: geerlingguy.firewall
+        become: true
+        become_method: sudo
+
+      - role: geerlingguy.ntp
+        become: true
+        become_method: sudo
+
+      - role: geerlingguy.git
+        become: true
+        become_method: sudo
+
+      - role: geerlingguy.java
+        become: true
+        become_method: sudo
+
+      - role: geerlingguy.jenkins
+        become: true
+        become_method: sudo
 
       #- role: vozerov.sudo
         #sudo_sudoers:

@@ -64,7 +64,7 @@ config.vm.network :private_network, ip: "192.168.33.55"
   
      # Customize the amount of memory on the VM:
      libvirt.memory = "6144"
-     libvirt.cpus = 1
+     libvirt.cpus = 2
    end
   
   # View the documentation for the provider you are using for more
