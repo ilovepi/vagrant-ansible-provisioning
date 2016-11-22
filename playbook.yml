@@ -1,5 +1,7 @@
 ---
-- hosts: all
+- hosts: jenkins
+  vars_files:
+      - vars/main.yml
   vars:
     spf13_output_file_name: spf13-script.sh
     apt_install_packages: 
