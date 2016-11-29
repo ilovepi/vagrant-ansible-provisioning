@@ -69,7 +69,7 @@
 #- debug: msg="WORKSPACE={{ ansible_env.WORKSPACE | mandatory  }}"
 
 - name: Clone Hypervisor Super Project
-  git: repo=git@github.com:/ilovepi/hypervisor-super.git
+  git: repo=git@github.com:/securesystemslab/hypervisor-super.git
           dest={{ project_root }}
           version=no-submodules
           depth=1
@@ -79,7 +79,7 @@
   become_user: "{{ user_name }}"
 
 - name: Clone Hypervisor Fork
-  git: repo=git@github.com:/ilovepi/hypervisor.git
+  git: repo=git@github.com:/securesystemslab/hypervisor.git
           dest={{ project_root }}/hypervisor
           version=master
           depth=1
@@ -89,7 +89,7 @@
   become_user: "{{ user_name }}"
 
 - name: Clone Multicompiler Super Project
-  git: repo=git@github.com:/ilovepi/multicompiler-automation.git
+  git: repo=git@github.com:/securesystemslab/multicompiler-automation.git
           dest={{ project_root }}/multicompiler
           version=no-submodules
           depth=1
