@@ -1,9 +1,0 @@
----
-- hosts: all
-  vars:
-  roles:
-      - update_source
-      - build_project
-
-  tasks:
-
