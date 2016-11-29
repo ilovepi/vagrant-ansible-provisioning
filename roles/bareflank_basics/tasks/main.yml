@@ -71,6 +71,7 @@
 - name: Clone Hypervisor Super Project
   git: repo=git@github.com:/securesystemslab/hypervisor-super.git
           dest={{ project_root }}
+          version=master
           depth=1
           accept_hostkey=true
           update=yes
@@ -90,6 +91,7 @@
 - name: Clone Multicompiler Super Project
   git: repo=git@github.com:/securesystemslab/multicompiler-automation.git
           dest={{ project_root }}/multicompiler
+          version=master
           depth=1
           accept_hostkey=true
           update=yes
