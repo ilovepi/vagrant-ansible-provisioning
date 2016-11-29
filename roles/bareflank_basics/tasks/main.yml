@@ -72,7 +72,6 @@
   git: repo=git@github.com:/securesystemslab/hypervisor-super.git
           dest={{ project_root }}
           version=master
-          depth=1
           accept_hostkey=true
           update=yes
   become: true
@@ -82,7 +81,6 @@
   git: repo=git@github.com:/securesystemslab/hypervisor.git
           dest={{ project_root }}/hypervisor
           version=master
-          depth=1
           accept_hostkey=true
           update=yes
   become: true
@@ -92,7 +90,6 @@
   git: repo=git@github.com:/securesystemslab/multicompiler-automation.git
           dest={{ project_root }}/multicompiler
           version=master
-          depth=1
           accept_hostkey=true
           update=yes
   become: true
@@ -103,7 +100,6 @@
           dest={{ project_root }}/multicompiler/llvm
           version=cfar_38
           update=yes
-          depth=1
           accept_hostkey=true
   become: true
   become_user: "{{ user_name }}"
@@ -113,7 +109,6 @@
           dest={{ project_root }}/multicompiler/llvm/tools/clang
           version=cfar_38
           update=yes
-          depth=1
           accept_hostkey=true
   become: true
   become_user: "{{ user_name }}"
@@ -123,7 +118,6 @@
           dest={{ project_root }}/multicompiler/llvm/projects/compiler-rt
           version=cfar_38
           update=yes
-          depth=1
           accept_hostkey=true
   become: true
   become_user: "{{ user_name }}"
@@ -133,7 +127,6 @@
           dest={{ project_root }}/multicompiler/llvm/projects/poolalloc
           version=cfar_38
           update=yes
-          depth=1
           accept_hostkey=true
   become: true
   become_user: "{{ user_name }}"
@@ -141,7 +134,6 @@
 - name: Clone Multi-Compiler SVF
   git: repo=git@github.com:/rboggild/SVF
           dest={{ project_root }}/multicompiler/llvm/projects/svf
-          depth=1
           update=yes
           accept_hostkey=true
   become: true
@@ -150,7 +142,6 @@
 - name: Clone Gold Linker
   git: repo=git@github.com:/securesystemslab/binutils.git
           dest={{ project_root }}/multicompiler/binutils
-          depth=1
           update=yes
           version=random_commons-2_26
           accept_hostkey=true
