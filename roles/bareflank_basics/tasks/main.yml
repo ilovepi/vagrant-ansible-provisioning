@@ -33,13 +33,13 @@
   become: true
   become_method: sudo
 
-- name: clone zsh syntax highlighting
-  git: repo=http://github.com/zsh-users/zsh-syntax-highlighting.git 
-          dest=~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-          update=yes
-  become: true
-  become_user: "{{ ansible_user_id }}"
-  become_method: sudo
+#- name: clone zsh syntax highlighting
+  #git: repo=http://github.com/zsh-users/zsh-syntax-highlighting.git 
+          #dest=~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+          #update=yes
+  #become: true
+  #become_user: "{{ ansible_user_id }}"
+  #become_method: sudo
 
 
 #- name: Download spf13 vim install script
@@ -92,6 +92,7 @@
           version=master
           accept_hostkey=true
           update=yes
+  tags: compiler
   become: true
   become_user: "{{ user_name }}"
 
@@ -101,6 +102,7 @@
           version=cfar_38
           update=yes
           accept_hostkey=true
+  tags: compiler
   become: true
   become_user: "{{ user_name }}"
 
@@ -110,6 +112,7 @@
           version=cfar_38
           update=yes
           accept_hostkey=true
+  tags: compiler
   become: true
   become_user: "{{ user_name }}"
 
@@ -119,6 +122,7 @@
           version=cfar_38
           update=yes
           accept_hostkey=true
+  tags: compiler
   become: true
   become_user: "{{ user_name }}"
 
@@ -128,6 +132,7 @@
           version=cfar_38
           update=yes
           accept_hostkey=true
+  tags: compiler
   become: true
   become_user: "{{ user_name }}"
 
@@ -136,6 +141,7 @@
           dest={{ project_root }}/multicompiler/llvm/projects/svf
           update=yes
           accept_hostkey=true
+  tags: compiler
   become: true
   become_user: "{{ user_name }}"
 
@@ -145,5 +151,6 @@
           update=yes
           version=random_commons-2_26
           accept_hostkey=true
+  tags: compiler
   become: true
   become_user: "{{ user_name }}"
