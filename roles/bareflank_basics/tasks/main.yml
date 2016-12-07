@@ -1,32 +1,32 @@
 ---
 - name: add cmake repo
   apt_repository: repo='ppa:george-edison55/cmake-3.x' state=present
-  tags: init
+  tags: bf_init
   become: true
   become_method: sudo
 
 - name: add ubuntu testing repos
   apt_repository: repo='ppa:ubuntu-toolchain-r/test' state=present
-  tags: init
+  tags: bf_init
   become: true
   become_method: sudo
 
 - name: update apt cache
   apt: update_cache=yes
-  tags: init
+  tags: bf_init
   become: true
   become_method: sudo
 
 - name: install bareflank deps
   apt: name={{ build_packages }} state=present
-  tags: init
+  tags: bf_init
   become: true
   become_method: sudo
 
 
 - name: install usability packages
   apt: name={{ dev_packages }} state=present
-  tags: init
+  tags: bf_init
   become: true
   become_method: sudo
 
@@ -35,7 +35,7 @@
       update_cache: yes
       upgrade: dist
       cache_valid_time: 3600
-  tags: init
+  tags: bf_init
   become: true
   become_method: sudo
 
@@ -63,7 +63,7 @@
 
 - name: patch printf.h
   replace: dest=/usr/include/printf.h regexp='__wur __THROW' replace='__THROW __wur' backup=yes
-  tags: init
+  tags: bf_init
   become: true
   become_method: sudo
 
